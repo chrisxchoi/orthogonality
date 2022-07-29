@@ -31,7 +31,7 @@ export default function QuestionsList(props) {
     axios.get('/qa/questions', {params: {product_id: props.productID}})
       .then((response) => {
         let sortedQuestions = response.data.sort((a, b) => b.question_helpfulness - a.question_helpfulness);
-        setQuestionsList(sortedQuestions.slice(0, 4));
+        setQuestionsList(sortedQuestions.slice(0, 2));
         setFullList(sortedQuestions);
         if (sortedQuestions.length <= 4) {
           setMoreQuestions(false);

@@ -10,12 +10,25 @@ import { FiTwitter } from 'react-icons/fi';
 const axios = require('axios');
 
 const Container = styled.div`
-  width: 78%;
+  width: 65%;
   margin: auto;
-  border: 2px solid lightgray;
-  box-shadow: 7px 7px 7px lightgray;
+  // border: 2px solid lightgray;
+  // box-shadow: 7px 7px 7px lightgray;
   display: flex;
   flex-direction: column;
+
+  // h2 {
+  //   margin: 0 0;
+  //   font-size: 24px;
+  //   font-family: "Source Sans Pro", sans-serif;
+  // }
+
+  h2 {
+    margin: 0;
+    position: relative;
+    top: 24px;
+    margin: -10px;
+  }
 
   h4 {
     text-transform: uppercase;
@@ -27,24 +40,34 @@ const SubContainer1 = styled.div`
   flex-direction: row;
 `
 const Description = styled.div`
-  border-top: 2px solid lightgray;
-  margin-left: 10px;
-  flex: 1 100px;
-
+  border-top: 2px solid darkgray;
+  border-bottom: 2px solid darkgray;
+  // margin-left: 10px;
+  flex: 1;
+  padding: 10px;
   p {
     opacity: 70%;
+    margin: 12px 0;
   }
+
+  h4 {
+    margin: 10px 0;
+  }
+  padding-bottom: 0;
 `
 const SubContainer2 = styled.div`
-  border-left: 2px solid lightgray;
-  flex: 2 200px;
+  // border-left: 2px solid darkgray;
+  // flex: 2;
   display: flex;
   flex-direction: column;
   min-width: 500px;
   max-width: 500px;
+  div {
+    padding-left: 0;
+  }
 `
 const Product = styled.div`
-  flex: 1 200px;
+  // flex: 1 100px;
   margin-top: 25px;
   padding-left: 30px;
   display: flex;
@@ -53,21 +76,25 @@ const Product = styled.div`
   text-transform: uppercase;
 `
 const Socials = styled.div`
+  display: flex;
+  padding-left: 30px;
   a {
       color: black;
       padding: 12px 15px;
       box-sizing: border-box;
       border: 1px solid black;
-      margin-right: 12px;
+      margin: 6px;
+      margin-top: 36px;
       background: none;
       font-weight: bold;
       font-size: 14px;
     }
+
 `
 const Selector = styled.div`
-  flex: 1 200px;
-  margin-top: 25px;
-  margin-left: 5px;
+  // flex: 1;
+  // margin-top: 25px;
+  margin-left: 0px;
   margin-right: 5px;
   margin-bottom: 5px;
   display: flex;
@@ -154,6 +181,7 @@ export default function Overview (props) {
   return (
     <>
       {hasLoaded && <Container>
+        {/* <h2>PRODUCT</h2> */}
         {showModal && <ExpandedModal setShowModal={setShowModal} hasLoaded={hasLoaded} productStyle={productStyle} currentIndex={currentIndex} setCurrentIndex={setCurrentIndex}/>}
           <SubContainer1>
             <ImageGallery setShowModal={setShowModal} hasLoaded={hasLoaded} productStyle={productStyle} currentIndex={currentIndex} setCurrentIndex={setCurrentIndex}/>
@@ -171,16 +199,17 @@ export default function Overview (props) {
                   {productStyle.sale_price === null ? <div>${productStyle.original_price}</div> : <div><s>${productStyle.original_price}</s></div>}
                   {productStyle.sale_price === null ? <InvSale>${productStyle.original_price}</InvSale> : <div>${productStyle.sale_price}</div>}
                 </div>
-                <Socials>
-                  <a href="http://www.facebook.com/share.php?u=https://www2.hm.com/en_us/index.html" target="_blank" rel="noopener noreferrer"><FaFacebookF/> FACEBOOK</a>
-                  <a href="https://twitter.com/intent/tweet" target="_blank" rel="noopener noreferrer"><FiTwitter/> TWITTER</a>
-                  <a href="https://www.pinterest.com/" target="_blank" rel="noopener noreferrer"><FaPinterestP/> PINTEREST</a>
-                </Socials>
+
               </Product>
               <Selector>
               <StyleList styleName={productStyle.name} setStyleID={props.setStyleID} setProductStyle={setProductStyle} styleID={props.styleID} styleInfo={styleInfo}/>
               </Selector>
               <StyleCart styleID={props.styleID} cart={cart} setCart={setCart} productStyle={productStyle}/>
+              <Socials>
+                  <a href="http://www.facebook.com/share.php?u=https://www2.hm.com/en_us/index.html" target="_blank" rel="noopener noreferrer"><FaFacebookF/> FACEBOOK</a>
+                  <a href="https://twitter.com/intent/tweet" target="_blank" rel="noopener noreferrer"><FiTwitter/> TWITTER</a>
+                  <a href="https://www.pinterest.com/" target="_blank" rel="noopener noreferrer"><FaPinterestP/> PINTEREST</a>
+                </Socials>
             </SubContainer2>
           </SubContainer1>
           <Description>

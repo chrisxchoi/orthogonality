@@ -13,8 +13,9 @@ display: flex;
 align-items: center;
 `
 const AddCard = styled.div`
-height: 400px;
-width: 270px;
+// position: relative;
+height: 300px;
+width: 200px;
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -30,8 +31,12 @@ font-family: 'Source Sans Pro', sans-serif;
 font-weight: 500;
 `
 const PlusIcon = styled(BsPlus)`
-height: 250px;
-width: 250px;
+// display: flex;
+// justify-content: center;
+// align-items: center;
+// position: absolute;
+height: 300px;
+width: 200px;
 margin: 10px;
 background-color: #e6feffa3;
 `

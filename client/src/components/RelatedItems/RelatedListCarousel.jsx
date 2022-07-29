@@ -11,6 +11,7 @@ const RelatedCarousel = styled.div`
 display: flex;
 justify-content: space-between;
 align-items: center;
+margin: 0 auto;
 `
 const RightArrow = styled(FaAngleDoubleRight)`
 height: 50px;

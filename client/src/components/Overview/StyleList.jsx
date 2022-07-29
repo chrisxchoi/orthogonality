@@ -9,6 +9,8 @@ const Container = styled.fieldset`
   display: flex;
   flex-wrap: wrap;
   border: 0;
+  padding-left: 0;
+  margin-left: 0;
 `
 
 export default function StyleList (props) {
