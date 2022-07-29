@@ -8,6 +8,8 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   object-fit: contain;
+  align-items: bottom;
+  margin: 0 48px;
 
   // img {
   //   width: 100%;
@@ -19,9 +21,10 @@ const ImgDiv = styled.img`
   align-self: center;
   margin-right: auto;
   margin-left: auto;
+  // width: 20%
   box-shadow: 7px 7px 7px lightgray;
-  max-width: 450px;
-  max-height: 500px;
+  max-width: 650px;
+  max-height: 550px;
   cursor: zoom-in;
 `
 

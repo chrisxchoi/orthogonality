@@ -6,15 +6,16 @@ import SizeModal from './SizeModal.jsx';
 const axios = require('axios');
 
 const Container = styled.div`
-  flex: 1 125px;
-  margin: 5px;
+  // flex: 1;
+  // margin: 5px;
+  margin-top: 0;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  // justify-content: space-evenly;
   padding-left: 30px;
 
   select {
-    padding: 12px 15px;
+    padding: 16px 18px;
     box-sizing: border-box;
     border: 1px solid black;
     margin-right: 12px;
@@ -23,12 +24,13 @@ const Container = styled.div`
   }
 
   button {
-    padding: 12px 15px;
+    padding: 22px 58px;
     box-sizing: border-box;
     border: 1px solid black;
     margin-right: 12px;
     background: none;
     font-weight: bold;
+    margin-top: 12px;
   }
 `
 

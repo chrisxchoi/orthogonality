@@ -8,8 +8,10 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   max-width: 100px;
-  min-height: 688px;
+  min-height: 620px;
   overflow: hidden;
+  margin-right: 32px;
+  // margin-top: 50px;
 `
 const InvButton = styled(IoIosArrowUp)`
   visibility: hidden;

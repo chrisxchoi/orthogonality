@@ -18,8 +18,8 @@ align-items: center;
 
 const AddCard = styled.div`
 // position: relative;
-height: 400px;
-width: 270px;
+height: 300px;
+width: 200px;
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -44,8 +44,8 @@ const PlusIcon = styled(BsPlus)`
 // justify-content: center;
 // align-items: center;
 // position: absolute;
-height: 250px;
-width: 250px;
+height: 300px;
+width: 200px;
 margin: 10px;
 background-color: #e6feffa3;
 // border-radius: 10px;

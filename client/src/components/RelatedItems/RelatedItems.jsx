@@ -25,7 +25,9 @@ font-weight: 700;
 const RelatedItemsContainer = styled.div`
 // margin-left: 200px;
 // margin-right: 200px;
-margin-top: 50px;
+// margin-top: 15px;
+display: flex;
+flex-direction: column;
 `
 
 const RelatedCarousel = styled.div`

@@ -12,7 +12,7 @@ export default function QandA(props) {
 
   return(
     <Container>
-      <h3>QUESTIONS & ANSWERS</h3>
+      <h2>QUESTIONS & ANSWERS</h2>
       <QuestionsList productID={props.productID}/>
     </Container>
   )
