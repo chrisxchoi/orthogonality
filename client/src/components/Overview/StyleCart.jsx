@@ -20,6 +20,7 @@ const Container = styled.div`
     border: 1px solid black;
     margin-right: 12px;
     background: none;
+    font: inherit;
     font-weight: bold;
   }
 
@@ -29,11 +30,11 @@ const Container = styled.div`
     border: 1px solid black;
     margin-right: 12px;
     background: none;
+    font: inherit;
     font-weight: bold;
     margin-top: 12px;
   }
 `
-
 const Size = styled.select`
 `
 const OOS = styled.select`
@@ -77,17 +78,6 @@ export default function StyleCart (props) {
     setQuantity(1);
   }, [props.styleID]);
 
-  // const handleCart = () => {
-  //   console.log(props.cart);
-  //   const array = props.cart.slice();
-  //   const newAdd = {
-  //     sku_id: selectSize,
-  //     count: quantity
-  //   }
-  //   array.push(newAdd);
-  //   props.setCart(array);
-  // }
-
   const handleAPICart = () => {
     for (var i = 0; i < quantity; i++) {
       axios.post('/cart', {
@@ -102,10 +92,8 @@ export default function StyleCart (props) {
     }
   }
 
-
   return (
       <Container>
-
         <div>
         {styleObj[null] === undefined && <Size value={selectSize} onChange={()=> setSelectSize(event.target.value)}>
           <option value ='SELECT SIZE'>SELECT SIZE</option>
@@ -113,38 +101,29 @@ export default function StyleCart (props) {
             <SizeEntry key={key} index={key} value={styleObj[key]}/>
           ))}
         </Size>}
-
         {styleObj[null] !== undefined && <OOS disabled>
           <option value='-'>OUT OF STOCK</option>
         </OOS>}
-
         {selectSize !== 'SELECT SIZE' && <QuantityActive value={quantity} onChange={()=> setQuantity(event.target.value)}>
           {/* <option value='1'>1</option> */}
           {fifteen.length <= quantityArray.length ? fifteen.map((num) => (<QuantityEntry key={num} num={num}/>)) : quantityArray.map((num) => (<QuantityEntry key={num} num={num}/>))}
         </QuantityActive>}
-
         {selectSize === 'SELECT SIZE' && <QuantityDisabled disabled>
           <option value='-'>-</option>
         </QuantityDisabled>}
         </div>
-
         <div>
         {styleObj[null] === undefined && selectSize !== 'SELECT SIZE' && <Add onClick={handleAPICart}>
           ADD TO CART +
         </Add>}
-
         {styleObj[null] === undefined && selectSize === 'SELECT SIZE' && <AddSize onClick={()=> setSizeModal(true)}>
           ADD TO CART +
         </AddSize>}
-
         {styleObj[null] !== undefined && <AddDisabled disabled>
           ADD TO CART +
         </AddDisabled>}
         </div>
-
         {sizeModal && <SizeModal setSizeModal={setSizeModal} />}
-
       </Container>
   )
 }
-

@@ -1,10 +1,6 @@
 const axios = require('axios');
 const config = require('../config.js')
 
-// default IDs for testing:
-// product_id: 40344 - 40348
-// question_id: 640785
-
 const options = {
   headers: {
     'Authorization': config.TOKEN

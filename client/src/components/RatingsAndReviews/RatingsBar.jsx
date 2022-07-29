@@ -1,37 +1,28 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const RatingsBarText = styled.div`
   flex: 20%;
-  // height: 10px;
-  // vertical-align: middle;
-  // align-self: center;
   text-decoration: underline;
   font-size: 14px;
-`;
-
+`
 const ParentBar = styled.div`
   flex: 80%;
   display: flex;
   height: 8px;
   width: 100%;
-  // background-color: silver;
-`;
-
+`
 const FilledPortion = styled.div`
   flex: ${(props) => String(props.percentTrue) + '%'};
   background-color: #28d549b3;
-`;
-
+`
 const UnfilledPortion = styled.div`
   flex: ${(props) => String(props.percentFalse) + '%'};
   background-color: rgb(211, 211, 211);
-`;
-
+`
 const StarRatingItem = styled.li`
   background-color: ${props => props.inFilter ? 'orange' : 'white'}
-`;
-
+`
 
 export default function RatingsBar(props) {
   let [itemClicked, setItemClicked] = useState(false);

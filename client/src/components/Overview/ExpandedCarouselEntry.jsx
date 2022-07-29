@@ -6,7 +6,6 @@ const Image = styled.div`
   margin: 10px;
 `
 
-
 export default function ExpandedCarouselEntry (props) {
 
   const mappedIndex = props.photoArray.map((photo) => (photo.url)).indexOf(props.photo.url);

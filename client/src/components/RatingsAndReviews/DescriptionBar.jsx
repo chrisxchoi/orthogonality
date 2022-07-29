@@ -1,37 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 const Descriptions = styled.div`
   display: flex;
-  // justify-content: flex-end;
-  // padding-bottom: 1em;
-  // width: 90%;
   align-items: stretch;
-  // align-content: center;
   margin: 20px 0;
   margin-top: 5px;
 `
-
 const SingleDes = styled.div`
   display: flex;
   flex-direction: column;
-  // justify-content: space-around;
   align-items: center;
   width: 20%;
   font-size: 0.8em !important;
-
-  // & div:first-child {
-  //   font-size: 12px;
-  // }
   gap: 8px;
 `
-
 const Characteristics = styled.div`
   font-color: inherit;
   font-size: 1em;
   padding-bottom: 0.5em;
-  // width: 10%;
-  // margin: 0 auto;
   text-align: center;
 `
 

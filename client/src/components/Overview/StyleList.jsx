@@ -5,7 +5,6 @@ import StyleEntry from './StyleEntry.jsx';
 const StyleTitle = styled.div`
   padding-left: 30px;
 `
-
 const Container = styled.fieldset`
   display: flex;
   flex-wrap: wrap;

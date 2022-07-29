@@ -7,31 +7,19 @@ import RatingsBox from './RatingsBox.jsx';
 
 const Container = styled.div`
   display: flex;
-  // margin: auto;
   height: 1300px;
-  // border: 1px dotted;
-  // width: 70%
-  // margin: auto;
-`;
-
+`
 const RatingsContainer = styled.section`
   flex: 1;
   display: flex;
   flex-direction: column;
-  // border: 1px dotted;
-  // margin: 5px;
-  // padding: 25px;
   padding-right: 10px;
   h4 {
     margin-bottom: 5px;
   }
 `
-
 const ReviewsContainer = styled.main`
   flex: 3;
-  // border: 1px dotted;
-  // margin: 5px;
-  // padding: 15px;
   margin-left: 30px;
   padding-left: 24px;
   margin-top: 40px;
@@ -51,33 +39,25 @@ export default function RatingsAndReviews(props) {
 
   const getReviews = async () => {
     let res = await axios.get('/reviews/meta', { params: { product_id: props.productID } });
-
     await setReviewMetadata(res.data);
-
     let reviewCount = countReviews(res.data.ratings);
     await setReviewTotal(reviewCount);
-
     let res2 = await axios.get('/reviews', { params: { product_id: props.productID, count: reviewCount, sort: sortCategory } });
     let final = res2.data.results;
-
     return final;
   }
 
   useEffect (() => {
-
     pageLoader();
-
   }, [sortCategory, starsFilter]);
 
   const pageLoader = async () => {
     await setReviewDisplayCount(2);
     let loadedReviews = await getReviews();
-
     if (starsFilter.length > 0) {
       let filteredReviews = loadedReviews.filter( (review) => {
         return starsFilter.includes(String(review.rating))
       })
-
       await setReviews(filteredReviews)
       await setHasLoaded(true);
       return;
@@ -103,23 +83,6 @@ export default function RatingsAndReviews(props) {
   const sortHandler = (event) => {
     setSortCategory(event.target.value);
   }
-
-  // const getReviewAvg = (ratingsObj) => {
-  //   let counter = 0;
-  //   let sum = 0;
-
-  //   for (let key in ratingsObj) {
-  //     if (Object.hasOwn(ratingsObj, key)) {
-  //       sum += parseInt(ratingsObj[key]) * parseInt(key)
-  //       counter += parseInt(ratingsObj[key])
-  //     }
-  //   }
-  //   let roundedAvg = (sum / counter).toFixed(2);
-  //   console.log('ROUNDED AVG IS...', typeof(roundedAvg))
-
-  //   let final = parseFloat(roundedAvg);
-  //   console.log('FINAL IS..', final)
-  // }
 
   return (
     <div className="ratings-and-reviews">

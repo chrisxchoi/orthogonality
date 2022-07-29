@@ -9,24 +9,18 @@ import { FaAngleDoubleRight, FaAngleDoubleLeft } from 'react-icons/fa';
 
 const RelatedCarousel = styled.div`
 display: flex;
-// position: relative;
-// width: 1300px;
-// overflow: hidden;
 justify-content: space-between;
 align-items: center;
 margin: 0 auto;
 `
-
 const RightArrow = styled(FaAngleDoubleRight)`
 height: 50px;
 width: 50px;
 `
-
 const LeftArrow = styled(FaAngleDoubleLeft)`
 height: 50px;
 width: 50px;
 `
-
 const HideArrow = styled(FaAngleDoubleLeft)`
 height: 50px;
 width: 50px;
@@ -39,8 +33,6 @@ export default function RelatedListCarousel({ setID, currentFeatures }) {
   let productID = useContext(IDContext)
   let relatedItems = useContext(RelatedContext);
   let slicedRelatedItems = relatedItems.slice(carouselLength[0], carouselLength[1]);
-
-
 
   const moveCarousel = (arrow) => {
     if (arrow === 'left') {
@@ -63,8 +55,6 @@ export default function RelatedListCarousel({ setID, currentFeatures }) {
       ))}
       {carouselLength[1] < relatedItems.length ? <RightArrow onClick={() => moveCarousel('right')}/> : <HideArrow />}
     </RelatedCarousel>
-    {/* {carouselLength[0] > 0 ? <FaAngleDoubleLeft onClick={() => moveCarousel('left')}/> : HideArrow}
-    {carouselLength[1] < relatedItems.length ? <FaAngleDoubleRight onClick={() => moveCarousel('right')}/> : HideArrow} */}
     </div>
   )
 }

@@ -3,7 +3,6 @@ const config = require('../config.js')
 
 exports.listProducts = (req, res) => {
   let url = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products`;
-  // let url = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/?page=${req.query.page}&count=${req.query.count}`;
     let options = {
       headers: {
         'Authorization': config.TOKEN
@@ -23,7 +22,6 @@ exports.listProducts = (req, res) => {
 }
 
 exports.productInfo = (req, res) => {
-  // console.log(req);
   const product_id = req.params.product_id;
     let url = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${product_id}`;
     let options = {
@@ -33,7 +31,6 @@ exports.productInfo = (req, res) => {
     }
     axios.get(url, options)
     .then((response) => {
-      // console.log('getOne', response.data);
       res.status(200).send(response.data)
     })
     .catch((err) => {
@@ -42,7 +39,6 @@ exports.productInfo = (req, res) => {
 }
 
 exports.productStyles = (req, res) => {
-  // console.log(req.query.product_id)
   const product_id = req.params.product_id;
   let url = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${product_id}/styles`;
   let options = {
@@ -52,7 +48,6 @@ exports.productStyles = (req, res) => {
   }
   axios.get(url, options)
     .then((response) => {
-      // console.log(response);
       res.status(200).send(response.data)
     })
     .catch((err) => {
@@ -62,7 +57,6 @@ exports.productStyles = (req, res) => {
 }
 
 exports.postCart = (req, res) => {
-  // console.log('post req', req.body.sku_id);
   const sku = req.body.sku_id;
   let url = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/cart/`;
   let data = {sku_id: sku}
@@ -73,7 +67,6 @@ exports.postCart = (req, res) => {
     }};
   axios.post(url, data, options)
     .then((response) => {
-      // console.log(response);
       res.status(200).send(response.data)
     })
     .catch((err) => {
@@ -91,7 +84,6 @@ exports.getCart = (req, res) => {
   }
   axios.get(url, options)
     .then((response) => {
-      // console.log(response);
       res.status(200).send(response.data)
     })
     .catch((err) => {

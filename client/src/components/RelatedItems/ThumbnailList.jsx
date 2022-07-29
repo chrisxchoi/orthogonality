@@ -16,34 +16,24 @@ object-fit: cover;
 margin-left: 5px;
 margin-right: 5px;
 margin-bottom: 15px;
-// background-color: #f0ffff;
 background-color: rgba(168,168,168,.7);
 z-index: 1;
 border: 1.5px solid white;
 border-radius: 10px;
 `
-
 const RightArrow = styled(FaAngleDoubleRight)`
 margin-bottom: 15px;
 `
-
 const LeftArrow = styled(FaAngleDoubleLeft)`
 margin-bottom: 15px;
 `
-
 const HideArrow = styled(FaAngleDoubleLeft)`
 visibility: hidden;
 `
-
-// const hideRight = styled(FaAngleDoubleRight)`
-// visibility: hidden;
-// `
-
 const Container = styled.div`
 display: flex;
 position: absolute;
 align-items: center;
-// max-width: 225px;
 `
 
 export default function ThumbnailList ({ id, setRelatedStyleInfo, thumbnailPhotos, relatedStyleInfo }) {

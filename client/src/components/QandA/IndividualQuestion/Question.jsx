@@ -15,7 +15,6 @@ const QuestionDiv = styled.div`
 const Container = styled.div`
   margin-bottom: 20px;
 `
-
 const A = styled.b`
   vertical-align: top;
 `
@@ -23,7 +22,7 @@ const AnswerListContainer = styled.div`
   display: inline-block;
   font-size: 14px;
   opacity: 0.9;
-  max-height: 50vh;
+  max-height: 40vh;
   overflow: auto;
 `
 const Button = styled.button`

@@ -11,8 +11,6 @@ import calculateReviewAvg from '../../lib/calculateReviewAvg.js';
 
 const PrimaryImage = styled.img`
 display: flex;
-// justify-content: center;
-// align-items: center;
 position: relative;
 z-index: 1
 top: 0;
@@ -21,20 +19,16 @@ height: 280px;
 width: 250px;
 object-fit: contain;
 margin: 7px 10px 10px 10px;
-// margin-top: 5px;
-// margin-bottom: 10px;
 max-width: 100%;
 background-color: #e6feffa3;
 border-radius: 10px;
 `
-
 const PhotosContainer = styled.div`
 position: relative;
 display: flex;
 align-items: flex-end;
 justify-content: space-around;
 `
-
 const RemoveButton = styled(HiX)`
 position: absolute;
 top: 7px;
@@ -42,7 +36,6 @@ right: 10px;
 height: 25px;
 width: 25px;
 `
-
 const OutfitCardDiv = styled.div`
 position: relative;
 height: 400px;
@@ -50,34 +43,27 @@ width: 270px;
 display: block;
 align-items: center;
 border: 2px solid lightgray;
-// box-shadow: 7px 7px 7px #ffe6feb5;
 box-shadow: 7px 7px 7px lightgray;
 margin-right: 15px;
 margin-left: 15px;
 margin-bottom: 30px;
-// border-radius: 10px;
 `
-
 const ProductCategory = styled.div`
   font-family: 'Source Sans Pro', sans-serif;
   color: gray;
   margin: 5px 10px 5px 8px;
 `
-
 const ProductPrice = styled.div`
   font-family: 'Source Sans Pro', sans-serif;
   color: gray;
   margin: 5px 10px 2px 8px;
 `
-
-
 const ProductName = styled.div`
   font-weight: 600;
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 18px;
   margin: 5px 10px 5px 8px;
 `
-
 const StrikePrice = styled.div`
 float: left;
 text-decoration: line-through;
@@ -86,7 +72,6 @@ font-family: 'Source Sans Pro', sans-serif;
 color: gray;
 margin: 5px 3px 2px 8px;
 `
-
 const SalesPrice = styled.div`
 color: red;
 font-family: 'Source Sans Pro', sans-serif;
@@ -96,10 +81,8 @@ margin: 5px 10px 2px 8px;
 export default function OutfitCard({id, setID, removeFromList, addProductCache, addStyleCache, addReviewCache, productCache, styleCache, reviewCache}) {
   const [hoverStatus, setHoverStatus] = useState(false);
   const [hasLoaded, setHasLoaded] = useState(false);
-  // const [outfitProductInfo, setOutfitProductInfo] = useState({});
-  // const [outfitStyleInfo, setOutfitStyleInfo] = useState({});
-  const [relatedProductInfo, setRelatedProductInfo] = useState([]); // name, category, features, default price
-  const [relatedStyleInfo, setRelatedStyleInfo] = useState([]); // sale price, photos
+  const [relatedProductInfo, setRelatedProductInfo] = useState([]);
+  const [relatedStyleInfo, setRelatedStyleInfo] = useState([]);
   const [thumbnailPhotos, setThumbnailPhotos] = useState([]);
   const [dummyRating, setDummyRating] = useState(3.15);
   const [averageRating, setAverageRating] = useState('');
@@ -111,8 +94,6 @@ export default function OutfitCard({id, setID, removeFromList, addProductCache, 
       setRelatedProductInfo(productCache[productID])
       setRelatedStyleInfo(styleCache[productID])
       setAverageRating(reviewCache[productID])
-      // console.log('review cache: ', reviewCache)
-      // console.log('product cache: ', productCache)
       setHasLoaded(true)
     } else {
       axios.get(`/products/${productID}`)
@@ -142,8 +123,6 @@ export default function OutfitCard({id, setID, removeFromList, addProductCache, 
       })
       axios.get('/reviews/meta', { params: { product_id: productID } })
       .then((response) => {
-        // console.log('review ratings: ', response.data.ratings)
-        // console.log('average ratings: ', calculateReviewAvg(response.data.ratings))
         let average = calculateReviewAvg(response.data.ratings)
         setAverageRating(calculateReviewAvg(response.data.ratings));
         addReviewCache(productID, average)
@@ -157,33 +136,16 @@ export default function OutfitCard({id, setID, removeFromList, addProductCache, 
     }
   }
 
-  // const getAverageReview = () => {
-  //   axios.get('/reviews/meta', { params: { product_id: productID } })
-  //     .then((response) => {
-  //       console.log('review ratings: ', response.data.ratings)
-  //       console.log('average ratings: ', calculateReviewAvg(response.data.ratings))
-  //       setAverageRating(calculateReviewAvg(response.data.ratings));
-  //       addProductCache(productID, calculateReviewAvg(response.data.ratings))
-  //     })
-  //     .catch((err) => {
-  //       console.log('GET request failed for getAveragereview')
-  //     })
-  // }
-
   let onHover = () => {
     setHoverStatus(true);
   }
+
   let offHover = () => {
     setHoverStatus(false);
   }
 
-  // useEffect (() => {
-  //   getOutfitInfo();
-  // }, [])
-
   useEffect (() => {
     getOutfitInfo();
-    // getAverageReview();
   }, [id])
 
   return (
@@ -202,7 +164,3 @@ export default function OutfitCard({id, setID, removeFromList, addProductCache, 
     </div>
   )
 }
-
-
-// const [outfitProductInfo, setOutfitProductInfo] = useState({name: 'Camo Onesite', category: 'Jackets'});
-// const [outfitStyleInfo, setOutfitStyleInfo] = useState({default_price: '$140.00', sale_price: null, image: 'https://images.unsplash.com/photo-1501088430049-71c79fa3283e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80'});

@@ -24,7 +24,6 @@ const HideArrow = styled(IoIosArrowBack)`
   visibility: hidden;
 `
 
-
 export default function ExpandedCarousel (props) {
 
   const [carouselArray, setCarouselArray] = useState([0, 7]);

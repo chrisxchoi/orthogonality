@@ -9,8 +9,7 @@ const TileDiv = styled.div`
   padding-top: 35px;
   padding-bottom: 20px;
   padding-right: 10px;
-`;
-
+`
 const StarsAndUserInfoBar = styled.div`
   display: flex;
   box-sizing: border-box;
@@ -23,16 +22,13 @@ const StarsAndUserInfoBar = styled.div`
   div:nth-child(2) {
     opacity: 0.7
   }
-`;
-
+`
 const ReviewSummary = styled.h4`
   box-sizing: border-box;
-  // width: 960px;
   font-size: 18px;
   margin-bottom: 20px;
   margin-top: 12px;
-`;
-
+`
 const ReviewBody = styled.div`
   box-sizing: border-box;
   text-align: left;
@@ -41,9 +37,7 @@ const ReviewBody = styled.div`
     word-break: break-all;
   }
   margin-bottom: 14px;
-
-`;
-
+`
 const ExpandReviewsButton = styled.button`
   display: ${props => props.readMoreClicked ? 'none' : 'block'};
   background-color: transparent;
@@ -60,13 +54,10 @@ const ExpandReviewsButton = styled.button`
   }
   position: relative;
   bottom: 0.4em;
-`;
-
+`
 const PhotoCarousel = styled.div`
   display: flex;
   box-sizing: border-box;
-  // margin-top: 12px;
-  // margin-bottom: 12px;
   gap: 8px;
 
   img {
@@ -75,7 +66,6 @@ const PhotoCarousel = styled.div`
     width: 10%
   }
 `
-
 const LightBox = styled.div`
   z-index: 1;
   position: fixed;
@@ -93,8 +83,7 @@ const LightBox = styled.div`
     width: 50%;
     height: 50%;
   }
-`;
-
+`
 const Recommended = styled.div`
   display: flex;
   box-sizing: border-box;
@@ -108,13 +97,10 @@ const Recommended = styled.div`
     bottom: .10em;
   }
   align-content: center;
-
-`;
-
+`
 const SellerResponse = styled.div`
   background-color: grey;
-`;
-
+`
 const Helpfulness = styled.div`
   box-sizing: border-box;
   padding-top: 6px;
@@ -128,9 +114,7 @@ const Helpfulness = styled.div`
   & a:nth-child(3) {
     margin-left: 4px;
   }
-
-`;
-
+`
 const HelpfulnessDivider = styled.span`
   margin-left: 9px;
   margin-right: 9px;
@@ -139,7 +123,6 @@ const HelpfulnessDivider = styled.span`
   position: relative;
   top: 1px;
 `
-
 const AverageStarsContainer = styled.div`
 display: flex;
 justify-content: flex-start;
@@ -147,8 +130,7 @@ justify-content: flex-start;
     height: 17px;
     width: 17px;
   }
-`;
-
+`
 const UserInfo = styled.div`
   position: relative;
   bottom: 5px;
@@ -198,7 +180,6 @@ export default function ReviewTile(props) {
 
   const markAsHelpful = (e) => {
     e.preventDefault();
-    // checks if item has already been marked as helpful
     if (!helpfulnessClicked) {
       axios.put(`/reviews/${props.review.review_id}/helpful`)
         .then((response) => {
@@ -216,7 +197,6 @@ export default function ReviewTile(props) {
 
   const markAsReported = (e) => {
     e.preventDefault();
-    // checks if item has already been marked as helpful
     if (!reportedClicked) {
       axios.put(`/reviews/${props.review.review_id}/report`)
         .then((response) => {
@@ -233,7 +213,6 @@ export default function ReviewTile(props) {
 
   return (
     <TileDiv>
-
       <StarsAndUserInfoBar>
         <AverageStarsContainer><AverageStars rating={props.review.rating}></AverageStars></AverageStarsContainer>
         <UserInfo>{props.review.reviewer_name}, {date}</UserInfo>
@@ -273,12 +252,9 @@ export default function ReviewTile(props) {
       <Helpfulness>
         <span>Helpful? </span>
         <a href="#" onClick={markAsHelpful}>Yes</a> ({helpfulnessCount})
-        {/* <a href="#" onClick={() => setHelpfulnessClicked(true)}>No</a> */}
         <HelpfulnessDivider> | </HelpfulnessDivider>
         <a href="#" onClick={markAsReported}>Report</a>
-
       </Helpfulness>
-
     </TileDiv>
   )
 }

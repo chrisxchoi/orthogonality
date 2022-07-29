@@ -5,15 +5,10 @@ const FeaturesNamesSlider = styled.div`
   display: flex;
   height: 8px;
   justify-content: space-between;
-`;
-
+`
 const FeaturesNameSegment = styled.span`
-  // display: flex;
   height: 8px;
-  // justify-content: space-between;
-  // text-align: center;
-`;
-
+`
 const Slider = styled.input`
   margin-top: 6px;
   -webkit-appearance: none;
@@ -31,7 +26,6 @@ const Slider = styled.input`
     border-top: 12px solid #575b54;
   }
 `
-
 const LabelName = styled.div`
   padding-top: 0.75em;
   font-size: 1.2em;

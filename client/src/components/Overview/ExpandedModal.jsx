@@ -20,7 +20,6 @@ const Container = styled.div`
     height: 100%;
     object-fit: contain;
   }
-
 `
 const Content = styled.div`
   border: 2px solid lightgray;
@@ -64,7 +63,6 @@ const ZoomImg = styled.img`
   transform: translate(-50%, -50%);
   pointer-events: none;
 `
-
 const Exit = styled(FaRegTimesCircle)`
   margin: 5px;
 `

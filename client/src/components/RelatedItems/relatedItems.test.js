@@ -5,17 +5,6 @@ import App from "../App.jsx";
 import RelatedItems from "./RelatedItems.jsx";
 import RelatedListCarousel from "./RelatedListCarousel.jsx";
 import RelatedCard from "./RelatedCard.jsx";
-import OutfitList from "./OutfitList.jsx";
-
-
-// describe("RelatedItems Component", () => {
-
-//   it("rendered RelatedItems", () => {
-//     const { getByTestId } = render(<App />);
-//     const relatedItems = getByTestId("related");
-//     expect(relatedItems).toBeTruthy;
-//   });
-// });
 
 afterEach(cleanup)
 

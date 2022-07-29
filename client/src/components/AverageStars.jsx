@@ -9,20 +9,16 @@ const StarRatings = styled.div`
   margin-bottom: 30px;
   margin-left: 6px;
 `
-
 const RatingStar = styled.div`
   width: ${props => props.fill}%;
   overflow: hidden;
   position: absolute;
   color: black;
 `
-// ${props => props.fill};
 const FilledStar = styled(IoIosStar)`
-
   height: 20px;
   width: 20px;
-`;
-
+`
 const BlankStar = styled(IoIosStarOutline)`
   height: 20px;
   width: 20px;
@@ -71,4 +67,3 @@ function AverageStars ({ rating }) {
 }
 
 export default AverageStars;
-

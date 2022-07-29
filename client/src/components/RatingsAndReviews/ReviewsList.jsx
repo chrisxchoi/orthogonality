@@ -8,14 +8,12 @@ import AddReviewModal from './AddReviewModal.jsx'
 const MoreReviewsButton = styled.button`
   border: 1px solid;
   margin: 5px;
-`;
-
+`
 const AddReviewButton = styled.button`
   display: inline-block;
   border: 1px solid;
   margin: 5px;
-`;
-
+`
 const ButtonContainer = styled.div`
   display: inline-flex;
 
@@ -25,10 +23,10 @@ const ButtonContainer = styled.div`
   border: 1px solid black;
   margin-right: 12px;
   background: none;
+  font: inherit;
   font-weight: bold;
   }
-`;
-
+`
 const SortBar = styled.form`
   margin-top: 5px;
   select {
@@ -36,8 +34,7 @@ const SortBar = styled.form`
     border: none;
     text-decoration: underline;
   }
-`;
-
+`
 const UnorderedList = styled.ul`
   padding: 0;
   max-height: 1000px;
@@ -46,14 +43,11 @@ const UnorderedList = styled.ul`
     border-top: 1px solid black;
   }
   & li:first-child div:first-child {
-    // border-box: content-box;
-    // padding-top: 5px;
   }
   font-size: 15px;
   margin-top: 0;
 
-`;
-
+`
 
 export default function ReviewsList(props) {
 
@@ -92,11 +86,9 @@ export default function ReviewsList(props) {
           </select>
         </SortBar>
       </h3>
-
       <UnorderedList>
         {listReviewTiles}
       </UnorderedList>
-
       <ButtonContainer>
         {props.reviews.length <= 2 || props.reviewDisplayCount >= props.reviews.length
           ? null

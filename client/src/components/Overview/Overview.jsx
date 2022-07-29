@@ -115,6 +115,7 @@ const Link = styled.div`
   opacity: 70%;
 `
 const ProductName = styled.div`
+  margin-left: -2px;
   font-size: 32px;
   font-weight: bold;
 `
@@ -138,6 +139,7 @@ export default function Overview (props) {
       setProductInfo(response.data);
     })
     .catch((err) => {
+      console.log(err);
     })
     axios.get(`/products/${props.productID}/styles`)
     .then((response) => {
@@ -151,6 +153,7 @@ export default function Overview (props) {
       setHasLoaded(true);
     })
     .catch((err) => {
+      console.log(err);
     })
     axios.get('/reviews/meta', {params: { product_id: props.productID }})
     .then((response) => {

@@ -12,7 +12,6 @@ const Input = styled.input`
   border: 1px solid black;
 `
 
-
 export default function SearchBar(props) {
   const [entry, setEntry] = useState('');
 
@@ -34,7 +33,6 @@ export default function SearchBar(props) {
       props.setQuestionsList(props.questions.slice(0, props.count));
     }
   }
-
 
   return(
     <Form>

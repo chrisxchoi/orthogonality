@@ -11,7 +11,7 @@ export const IDContext = React.createContext()
 
 
 const Container = styled.div`
-  // font-family: Arial, sans-serif;
+// font-family: Arial, sans-serif;
 `
 const Logo = styled.h1`
 // width: 85%;
@@ -66,7 +66,6 @@ export default function App() {
   const el2 = useRef();
 
   return (
-
     <IDContext.Provider value={productID}>
       <Logo id="logo">HEVANIS</Logo>
       <Overview reviewAvg={reviewAvg} reference={el1} click={()=> scrollToDiv(el2)} styleID={styleID} setStyleID={setStyleID} setProductID={setProductID} productID={productID}/>

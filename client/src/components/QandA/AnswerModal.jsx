@@ -76,8 +76,6 @@ const Label = styled.label`
 const AnswerContainer = styled.div`
   margin-bottom: 10px;
 `
-const ButtonContainer = styled.div`
-`
 const Submit = styled.button`
   position: absolute;
   padding: 8px 10px;

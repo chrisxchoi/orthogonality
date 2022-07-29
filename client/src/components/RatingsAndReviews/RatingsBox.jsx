@@ -4,20 +4,15 @@ import RatingsBar from './RatingsBar.jsx';
 import AverageStars from '../AverageStars.jsx';
 
 const RatingsBarContainer = styled.div`
-  // display: flex;
   margin: 0px 0;
-  // height: 8px;
   width: 100%;
-  // margin-bottom: 30px;
   font-size: 12px
-`;
-
+`
 const RecommendedContainer = styled.div`
   margin-bottom: 5px;
   margin-top: 14px;
   font-size: 14px;
-`;
-
+`
 const RatingsBarList = styled.ul`
   list-style-type: none;
   padding-left: 0;
@@ -35,11 +30,9 @@ const RatingsBarList = styled.ul`
     background-color: orange;
   }
 `
-
 const SectionHeading = styled.h2`
   margin-top: 0;
-`;
-
+`
 const AvgRatingAndStars = styled.div`
   span:first-child {
     font-size: 60px;
@@ -55,27 +48,23 @@ const AvgRatingAndStars = styled.div`
     position: relative;
     bottom: 14px;
   }
-`;
-
+`
 const RatingsBreakdown = styled.div`
   h4 {
     margin-top: 18px
   }
-`;
-
+`
 export default function RatingsBox(props) {
 
   let [recommendedPercent, setRecommendedPercent] = useState(0);
 
   useEffect(() => {
-
     setRecommendedPercent(calculateRecommended(props.metadata.recommended))
   }, []);
 
   const calculateRecommended = (obj) => {
     let sumReviews = 0;
     let numberOfRecommends;
-
     for (let key in obj) {
       if (Object.hasOwn(obj, key)) {
         if (key === 'false') {
@@ -96,7 +85,6 @@ export default function RatingsBox(props) {
     return sortedKeys.map((key) => {
       let ratingsPercent = Math.round((parseInt(ratingsObj[key]) / props.reviewTotal) * 100);
       let ratingsPercentRemainder = 100 - ratingsPercent;
-
       return (<RatingsBar key={key} starValue={key} ratingsPercent={ratingsPercent} ratingsPercentRemainder={ratingsPercentRemainder} starsFilter={props.starsFilter} setStarsFilter={props.setStarsFilter} ></RatingsBar>
       )
     })
@@ -120,7 +108,6 @@ export default function RatingsBox(props) {
       <RatingsBreakdown>
         <h4>RATINGS BREAKDOWN</h4>
       </RatingsBreakdown>
-
       <RatingsBarContainer>
         <RatingsBarList>
           {props.hasLoaded && createRatingsBreakdown(props.metadata.ratings)}

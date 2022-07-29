@@ -8,11 +8,8 @@ const Image = styled.img`
   box-shadow: 7px 7px 7px lightgray;
   cursor: e-resize;
   border: ${props => props.selected ? '2px solid #000000' : '2px solid #f8f8ff'}
-
-  // img {
-  //   height: 70;
-  // }
 `
+
 Image.defaultProps = {
   selected: false
 }

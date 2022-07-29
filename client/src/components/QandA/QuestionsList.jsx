@@ -11,15 +11,15 @@ const Button = styled.button`
   border: 1px solid black;
   margin-right: 12px;
   background: none;
+  font: inherit;
   font-weight: bold;
 `
 const QuestionsListContainer = styled.div`
-  max-height: 100vh;
+  max-height: 70vh;
   overflow: auto;
 `
 
 export default function QuestionsList(props) {
-  //const [productID, setProductID] = useState(props.productID);
   const [productName, setProductName] = useState('');
   const [questionsList, setQuestionsList] = useState([]);
   const [fullList, setFullList] = useState([]);

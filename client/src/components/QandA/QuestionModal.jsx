@@ -102,7 +102,6 @@ export default function QuestionModal(props) {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
 
-
   const handleQuestionChange = (e) => {
     setQuestionForm(e.target.value);
   };

@@ -17,8 +17,7 @@ const ModalBackground = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 1;
-`;
-
+`
 const ModalContainer = styled.div`
   width: 40%;
   height: 80%;
@@ -72,8 +71,7 @@ const ModalContainer = styled.div`
   textarea + div {
     font-size: 14px;
   }
-`;
-
+`
 const Submit = styled.button`
   // position: absolute;
   padding: 8px 10px;
@@ -83,8 +81,7 @@ const Submit = styled.button`
   color: rgba(250, 250, 250);
   border-radius: 4px;
   border: solid rgba(210, 210, 210);
-`;
-
+`
 const Close = styled.button`
   // position: absolute;
   padding: 8px 10px;
@@ -92,21 +89,18 @@ const Close = styled.button`
   // right: 125px;
   border-radius: 4px;
   border: solid rgba(210, 210, 210);
-`;
-
+`
 const Subtitle = styled.p`
   font-size: 15px;
   opacity: 0.8;
   margin-bottom: 5px;
   margin-top: 8px;
 `
-
 const Title = styled.h3`
   text-align: center;
   border-bottom: 1px solid rgba(210, 210, 210);
   margin-bottom: 15px;
 `
-
 const Header = styled.label`
   font-size: 2.1em;
 `
@@ -115,7 +109,6 @@ const ButtonContainer = styled.div`
   justify-content: end;
   margin-top: 20px;
 `
-
 const Entries = styled.div`
   display: flex;
   width: 100%;
@@ -151,7 +144,6 @@ const StarContainer = styled.div`
   // height: 10%;
   margin-top: 20px;
 `
-
 const RecommendContainer = styled.div`
   text-align: center;
   div {
@@ -164,20 +156,17 @@ const RecommendContainer = styled.div`
     margin: 10px 0px;
   }
 `
-
 const Caption = styled.div`
   font-size: 12px;
   text-align: center;
   margin-top: 6px;
-`;
-
+`
 const Thumbnail = styled.img`
   width: 100px;
   height: 100px;
   margin-right: 2px;
   margin-bottom: 6px;
 `
-
 const ThumbnailContainer = styled.div`
   display: flex;
   // flex-direction: column;
@@ -201,12 +190,10 @@ export default function AddReviewModal(props) {
   const [email, setEmail] = useState('');
   const [starRating, setStarRating] = useState(0);
   const [hoverRating, setHoverRating] = useState(0);
-
   const [fileInputState, setFileInputState] = useState('');
   const [selectedFile, setSelectedFile] = useState('');
   const [previewSource, setPreviewSource] = useState([]);
   const [photoURLs, setPhotoURLs] = useState([]);
-
 
   const inputHandler = (e) => {
     if (e.target.id === "review-summary") {
@@ -287,7 +274,6 @@ export default function AddReviewModal(props) {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-
     if (starRating === 0 || recommended === null || Object.keys(characteristics).length < Object.keys(props.metadata.characteristics) || reviewBody.length <= 50) {
       alertUser()
     } else {
@@ -302,8 +288,6 @@ export default function AddReviewModal(props) {
         photos: photoURLs,
         characteristics: characteristics
       }
-      console.log(obj);
-
       axios.post(`/reviews`, obj)
         .then((response) => {
           console.log(response)
@@ -316,13 +300,11 @@ export default function AddReviewModal(props) {
   return (
     <ModalBackground>
       <ModalContainer>
-        {/* <ModalBody> */}
         <form onSubmit={handleFormSubmit}>
           <Title>
             <Header>WRITE YOUR REVIEW</Header><br />
             <Subtitle>...about the <em>{props.productName}</em></Subtitle>
           </Title>
-
           <Caption>Items marked with * are required</Caption>
           <div>
             <h4>How many stars would you rate this product?*</h4>
@@ -341,7 +323,6 @@ export default function AddReviewModal(props) {
               })}
             </StarContainer>
           </div>
-
           <div>
             <h4>Do you recommend this product?*</h4>
             <RecommendContainer>
@@ -355,25 +336,21 @@ export default function AddReviewModal(props) {
               </div>
             </RecommendContainer>
           </div>
-
           <div>
             <h4>Characteristics</h4>
             {Object.keys(props.metadata.characteristics).map((label) => {
               return <DescriptionBar key={label} label={label} id={props.metadata.characteristics[label]['id']} setCharacteristics={setCharacteristics} characteristics={characteristics} required></DescriptionBar>
             })}
           </div>
-
           <div>
             <h4><label htmlFor="review-summary">Review Summary</label></h4>
             <input type="text" id="review-summary" name="review-summary" value={reviewSummary} onChange={inputHandler} placeholder="Best purchase ever!" size="82" maxLength="60" required />
             <h4><label htmlFor="review-body">Review Body*</label></h4>
             <textarea id="review-body" name="review-body" rows="15" cols="68" value={reviewBody} onChange={inputHandler} placeholder="Why did you like the product or not?" maxLength="1000" />
-
             <div>
               Minimum characters left: {50 - reviewBody.length > 0 ? 50 - reviewBody.length : 0}
             </div>
           </div>
-
           <Entries>
             <EntryDivLeft>
               <Label>Username</Label>
@@ -385,8 +362,6 @@ export default function AddReviewModal(props) {
               <Authentication>For authentication purposes, you will not be emailed.</Authentication>
             </EntryDiv>
           </Entries>
-
-
           <div>
             <h4>Upload Photos</h4>
             <input type='file' onChange={handleFileInputChange} value={fileInputState} />
@@ -397,16 +372,11 @@ export default function AddReviewModal(props) {
             )}))}
             </ThumbnailContainer>
           </div>
-
-
-
           <ButtonContainer>
             <Close onClick={() => props.addReviewClickHandler()}>Close</Close>
             <Submit type='submit'>Submit Answer</Submit>
           </ButtonContainer>
-
         </form>
-        {/* </ModalBody> */}
       </ModalContainer>
     </ModalBackground>
   )

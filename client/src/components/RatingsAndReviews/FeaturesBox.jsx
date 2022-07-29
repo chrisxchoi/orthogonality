@@ -7,15 +7,14 @@ const FeaturesBarContainer = styled.ul`
   list-style-type: none;
   padding-left: 0;
   margin-top: 0px;
-`;
-
+`
 const FeaturesListItem = styled.li`
   margin: 12px 0;
   font-size: 11px;
   & :first-of-type {
     margin-top: 2px;
   }
-`;
+`
 
 export default function FeaturesBox(props) {
 

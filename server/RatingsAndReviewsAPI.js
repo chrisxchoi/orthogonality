@@ -8,7 +8,6 @@ let options = {
 }
 
 exports.listReviews = (req, res) => {
-  // console.log(req.query)
   let listReviewOptions = {
     ...options,
     params: {
